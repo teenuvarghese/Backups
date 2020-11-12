@@ -1,0 +1,40 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="com.north.view.Home" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Categories" id="HomeId">
+	<headerContent>
+			<Button
+				icon="sap-icon://cart"
+				press="handleCartButtonPress">
+			</Button>
+		</headerContent>
+		<subHeader>
+			<Toolbar id="searchBar">
+				<SearchField
+					id="searchField"
+					search="handleSearch"
+					width="100%">
+				</SearchField>
+			</Toolbar>
+		</subHeader>
+		<content>
+	   	<List
+				id="categoryList"
+				growingThreshold="05"
+               	growing="true"
+				select="handleProductListSelect"
+				items="{aCategory>/}">
+					<items>
+					<ObjectListItem
+					     id="objListItem"
+					    type="Active"
+						title="{aCategory>CatName}"
+						number="{aCategory>ProductsLength}"
+						numberUnit="Available"
+						numberState="Success"
+						press="handleProductListItemPress">
+					</ObjectListItem>
+				</items>
+				</List>
+		</content>
+	</Page>
+</core:View>
